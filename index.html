@@ -14,44 +14,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            navy: '#0e1f3b',
-                            gold: '#cba343',
-                            light: '#f8fafc',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .hero-media{background:linear-gradient(90deg,rgba(5,16,33,.9),rgba(5,16,33,.1)),url('assets/img/hero.png') 60% center/cover}
-        /* Custom styles for subtle animations */
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-    </style>
+    <script src="/assets/js/tw.config.js"></script>
+    
 </head>
 <body class="font-sans text-gray-800 antialiased bg-brand-light">
 
@@ -61,7 +27,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="flex items-center gap-3">
-                        <img src="assets/img/logo.png" alt="Asia Pacific College of Aviation and Logistics Logo" class="h-20 w-auto rounded">
+                        <img src="/assets/img/logo.png" alt="Asia Pacific College of Aviation and Logistics Logo" class="h-20 w-auto rounded">
                     </a>
                     <!-- <div><div class="text-xl font-bold">Asia <span class="text-brand-gold">Pacific</span></div>College of Aviation and Logistics</div> -->
                 </div>
@@ -183,7 +149,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                 <a href="#courses"><article class="group relative min-h-80 overflow-hidden rounded-2xl bg-gray-900 shadow-xl">
-                    <img src="assets/img/pathway-aviation.png" alt="Aviation trainees learning with an instructor at an airport terminal" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                    <img src="/assets/img/pathway-aviation.png" alt="Aviation trainees learning with an instructor at an airport terminal" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 p-6">
                         <span class="inline-block h-1 w-10 rounded-full bg-brand-gold mb-4"></span>
@@ -193,7 +159,7 @@
                 </article></a>
 
                 <a href="#courses"><article class="group relative min-h-80 overflow-hidden rounded-2xl bg-gray-900 shadow-xl">
-                    <img src="assets/img/pathway-logistics.png" alt="Logistics trainees coordinating warehouse inventory on a tablet" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                    <img src="/assets/img/pathway-logistics.png" alt="Logistics trainees coordinating warehouse inventory on a tablet" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 p-6">
                         <span class="inline-block h-1 w-10 rounded-full bg-brand-gold mb-4"></span>
@@ -203,7 +169,7 @@
                 </article></a>
 
                 <a href="#courses"><article class="group relative min-h-80 overflow-hidden rounded-2xl bg-gray-900 shadow-xl">
-                    <img src="assets/img/pathway-front-office.png" alt="Front office professionals welcoming a guest at a hotel reception" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                    <img src="/assets/img/pathway-front-office.png" alt="Front office professionals welcoming a guest at a hotel reception" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 p-6">
                         <span class="inline-block h-1 w-10 rounded-full bg-brand-gold mb-4"></span>
@@ -213,7 +179,7 @@
                 </article></a>
 
                 <a href="#courses"><article class="group relative min-h-80 overflow-hidden rounded-2xl bg-gray-900 shadow-xl">
-                    <img src="assets/img/pathway-hr.png" alt="Human resources professional leading an inclusive team discussion" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                    <img src="/assets/img/pathway-hr.png" alt="Human resources professional leading an inclusive team discussion" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 p-6">
                         <span class="inline-block h-1 w-10 rounded-full bg-brand-gold mb-4"></span>
@@ -393,15 +359,16 @@
                     <h3 class="text-2xl font-bold text-brand-navy mb-3">Quick Enquiry</h3>
                     <p class="text-gray-600 mb-6">Share a few details. Our admissions team will contact you with programme information, fees and the next available intake.</p>
                     <form id="enquiry-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdTtNgB6ZcPX5ADZSCdMdH9pxgWAzg7VhdUz3RQZIn1hohS1g/formResponse" method="POST" target="google-form-target" class="space-y-4">
-                        
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" id="name" name="entry.1758808765" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition duration-200 outline-none" placeholder="Your Name">
+                            <input type="text" id="name" name="entry.1758808765" required minlength="2" maxlength="80" autocomplete="name" aria-describedby="name-help" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition duration-200 outline-none" placeholder="Your Name">
+                            <p id="name-help" class="mt-1 text-xs text-gray-500">Enter your full name using letters.</p>
                         </div>
 
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                            <input type="tel" id="phone" name="entry.1745059979" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition duration-200 outline-none" placeholder="xxxxxxxxxx">
+                            <input type="tel" id="phone" name="entry.1745059979" required inputmode="numeric" autocomplete="tel" maxlength="16" pattern="(?:\+?91[ -]?)?[6-9](?:[0-9][ -]?){8}[0-9]" aria-describedby="phone-help" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition duration-200 outline-none" placeholder="9876543210">
+                            <p id="phone-help" class="mt-1 text-xs text-gray-500">Enter a valid 10-digit Indian mobile number.</p>
                         </div>
 
                         <div>
@@ -436,7 +403,7 @@
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-                <img src="assets/img/logo-symbol.png" alt="Asia Pacific Logo" class="h-16 w-auto mb-4 rounded">
+                <img src="/assets/img/logo-symbol.png" alt="Asia Pacific Logo" class="h-16 w-auto mb-4 rounded">
                 <p class="text-sm">Empowering the next generation of professionals in the Aviation and Logistics sectors through world-class education.</p>
             </div>
             <div>
@@ -460,49 +427,6 @@
             &copy; 2026 Asia Pacific College of Aviation and Logistics. All rights reserved.
         </div>
     </footer>
-
-    <script>
-        // Simple script to toggle the mobile menu
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = menu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        const enquiryForm = document.getElementById('enquiry-form');
-        const formStatus = document.getElementById('form-status');
-        const submitButton = document.getElementById('form-submit');
-        const formTarget = document.querySelector('iframe[name="google-form-target"]');
-        let submissionPending = false;
-
-        enquiryForm.addEventListener('submit', () => {
-            submissionPending = true;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            formStatus.className = 'min-h-6 text-sm text-gray-600';
-            formStatus.textContent = 'Sending your enquiry...';
-        });
-
-        formTarget.addEventListener('load', () => {
-            if (!submissionPending) return;
-
-            submissionPending = false;
-            enquiryForm.reset();
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit Enquiry';
-            formStatus.className = 'min-h-6 text-sm text-green-700';
-            formStatus.textContent = 'Thank you. Your enquiry has been sent successfully.';
-        });
-
-    </script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
