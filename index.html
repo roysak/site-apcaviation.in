@@ -39,7 +39,7 @@
                     <a href="courses.html#courses" class="hover:text-brand-sky transition duration-300 font-medium">Courses</a>
                     <a href="events.html#events" class="hover:text-brand-sky transition duration-300 font-medium">Events</a>
                     <a href="#contact" class="hover:text-brand-sky transition duration-300 font-medium">Contact</a>
-                    <a href="#contact" class="bg-brand-sky text-brand-navy px-5 py-2 rounded-full font-bold hover:bg-sky-200 transition duration-300 shadow-md">Apply Now</a>
+                    <a href="enquiry.html" class="bg-brand-sky text-brand-navy px-5 py-2 rounded-full font-bold hover:bg-sky-200 transition duration-300 shadow-md">Enquire Now</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -80,8 +80,8 @@
                     <a href="#courses" class="bg-brand-sky text-brand-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-sky-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         Explore Programs
                     </a>
-                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition duration-300">
-                        Apply Now
+                    <a href="enquiry.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition duration-300">
+                        Enquire Now
                     </a>
                 </div>
             </div>
@@ -96,8 +96,8 @@
                 <a href="#courses" class="bg-brand-sky text-brand-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-sky-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Explore Programs
                 </a>
-                <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition duration-300">
-                    Apply Now
+                <a href="enquiry.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition duration-300">
+                    Enquire Now
                 </a>
             </div>
         </div>
@@ -337,23 +337,21 @@
                     <a href="events.html#logistics-qa" class="inline-block mt-6 text-brand-navy font-bold hover:text-brand-blue transition">View event details &rarr;</a>
                 </article>
             </div>
-            <div data-events-empty class="rounded-2xl border border-gray-200 bg-brand-light p-10 md:p-14 text-center">
+            <!-- <div data-events-empty class="rounded-2xl border border-gray-200 bg-brand-light p-10 md:p-14 text-center">
                 <h3 class="text-2xl font-bold text-brand-navy">No events available right now</h3>
                 <p class="mt-3 text-gray-600">Please check back soon for upcoming campus events and workshops.</p>
-                <a href="#contact" class="inline-block mt-6 font-bold text-brand-navy hover:text-brand-blue">Contact us about future events &rarr;</a>
-            </div>
+            </div> -->
         </div>
     </section>
 
     <section id="contact" class="py-20 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-brand-navy rounded-3xl overflow-hidden shadow-2xl">
-                
+            <div class="grid grid-cols-1 lg:grid-cols-2 bg-brand-navy rounded-3xl overflow-hidden shadow-2xl">
                 <!-- Contact Info -->
-                <div class="p-10 md:p-16 text-white flex flex-col justify-center">
+                <div class="p-8 sm:p-10 md:p-16 text-white flex flex-col justify-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-sky">Get in Touch</h2>
                     <p class="text-gray-300 mb-10 leading-relaxed">
-                        Ready to take the next step in your career? Fill out the form, and our admissions team will contact you shortly to guide you through the process.
+                        Visit our campus, call, or email us to get in touch.
                     </p>
                     
                     <div class="space-y-6">
@@ -391,49 +389,12 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Google Form Integration -->
-                <div class="bg-gray-50 p-10 md:p-16">
-                    <h3 class="text-2xl font-bold text-brand-navy mb-3">Quick Enquiry</h3>
-                    <p class="text-gray-600 mb-6">Share a few details. Our admissions team will contact you with programme information, fees and the next available intake.</p>
-                    <form id="enquiry-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdTtNgB6ZcPX5ADZSCdMdH9pxgWAzg7VhdUz3RQZIn1hohS1g/formResponse" method="POST" target="google-form-target" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" id="name" name="entry.1758808765" required minlength="2" maxlength="80" autocomplete="name" aria-describedby="name-help" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition duration-200 outline-none" placeholder="Your Name">
-                            <p id="name-help" class="mt-1 text-xs text-gray-500">Enter your full name using letters.</p>
-                        </div>
-
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                            <input type="tel" id="phone" name="entry.1745059979" required inputmode="numeric" autocomplete="tel" maxlength="16" pattern="(?:\+?91[ -]?)?[6-9](?:[0-9][ -]?){8}[0-9]" aria-describedby="phone-help" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition duration-200 outline-none" placeholder="9876543210">
-                            <p id="phone-help" class="mt-1 text-xs text-gray-500">Enter a valid 10-digit Indian mobile number.</p>
-                        </div>
-
-                        <div>
-                            <label for="course" class="block text-sm font-medium text-gray-700 mb-1">Interested Course *</label>
-                            <select id="course" name="entry.1613938917" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition duration-200 outline-none bg-white">
-                                <option value="">Select a Course...</option>
-                                <option value="International Diploma in Airport Management">International Diploma in Airport Management</option>
-                                <option value="BBA with Airport Management">BBA with Airport Management</option>
-                                <option value="International Diploma in Logistics Management">International Diploma in Logistics Management</option>
-                                <option value="BBA with Logistics Management">BBA with Logistics Management</option>
-                                <option value="Diploma in Front Office Management">Diploma in Front Office Management</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
-                            <textarea id="message" name="entry.1851752859" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition duration-200 outline-none resize-none" placeholder="Any specific questions?"></textarea>
-                        </div>
-
-                        <button id="form-submit" type="submit" class="w-full bg-brand-sky text-brand-navy font-bold py-3 px-6 rounded-lg hover:bg-sky-200 transition duration-300 shadow-md disabled:opacity-60 disabled:cursor-not-allowed">
-                            Submit Enquiry
-                        </button>
-                        <p id="form-status" class="min-h-6 text-sm" role="status" aria-live="polite"></p>
-                    </form>
-                    <iframe name="google-form-target" title="Google Forms submission target" class="hidden"></iframe>
+                <div class="bg-gray-50 p-8 sm:p-10 md:p-16 flex flex-col justify-center items-start">
+                    <p class="text-sm font-bold uppercase tracking-widest text-brand-blue mb-3">Course enquiries</p>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-navy leading-tight">Your next career move starts here</h3>
+                    <p class="mt-5 text-gray-600 leading-relaxed">Interested in aviation, logistics, or front office management? Tell us which course caught your eye, and our admissions team will help you explore your options.</p>
+                    <a href="enquiry.html" class="inline-block mt-8 rounded-full bg-brand-sky px-7 py-3 font-bold text-brand-navy hover:bg-sky-200 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue">Enquire About a Course</a>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -451,7 +412,7 @@
                     <li><a href="#about" class="hover:text-brand-sky transition">About Us</a></li>
                     <li><a href="courses.html#courses" class="hover:text-brand-sky transition">Programs & Courses</a></li>
                     <li><a href="events.html#events" class="hover:text-brand-sky transition">Events</a></li>
-                    <li><a href="#contact" class="hover:text-brand-sky transition">Contact & Admissions</a></li>
+                    <li><a href="#contact" class="hover:text-brand-sky transition">Contact</a></li>
                 </ul>
             </div>
             <div>

@@ -44,6 +44,16 @@ const submitButton = document.getElementById('form-submit');
 const formTarget = document.querySelector('iframe[name="google-form-target"]');
 const nameInput = document.getElementById('name');
 const phoneInput = document.getElementById('phone');
+const courseInput = document.getElementById('course');
+const courseBySlug = {
+    'airport-management-diploma': 'International Diploma in Airport Management',
+    'airport-management-bba': 'BBA with Airport Management',
+    'logistics-management-diploma': 'International Diploma in Logistics Management',
+    'logistics-management-bba': 'BBA with Logistics Management',
+    'front-office-management-diploma': 'Diploma in Front Office Management'
+};
+const selectedCourse = courseBySlug[new URLSearchParams(window.location.search).get('course')];
+if (selectedCourse) courseInput.value = selectedCourse;
 let submissionPending = false;
 
 const validateName = () => {
