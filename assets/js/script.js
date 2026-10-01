@@ -4,6 +4,7 @@ const menu = document.getElementById('mobile-menu');
 
 btn.addEventListener('click', () => {
     menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
 });
 
 // Close mobile menu when a link is clicked
@@ -11,10 +12,33 @@ const mobileLinks = menu.querySelectorAll('a');
 mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
         menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
     });
 });
 
+document.querySelectorAll('section#events').forEach(section => {
+    const list = section.querySelector('[data-events-list]');
+    const empty = section.querySelector('[data-events-empty]');
+    const buttons = section.querySelectorAll('[data-events-view]');
+    if (!list || !empty || !buttons.length) return;
+
+    buttons.forEach(button => button.addEventListener('click', () => {
+        const showEmpty = button.dataset.eventsView === 'empty';
+        list.hidden = showEmpty;
+        empty.hidden = !showEmpty;
+        buttons.forEach(option => {
+            const selected = option === button;
+            option.setAttribute('aria-pressed', String(selected));
+            option.classList.toggle('bg-brand-navy', selected);
+            option.classList.toggle('text-white', selected);
+            option.classList.toggle('bg-brand-light', !selected);
+            option.classList.toggle('text-brand-navy', !selected);
+        });
+    }));
+});
+
 const enquiryForm = document.getElementById('enquiry-form');
+if (enquiryForm) {
 const formStatus = document.getElementById('form-status');
 const submitButton = document.getElementById('form-submit');
 const formTarget = document.querySelector('iframe[name="google-form-target"]');
@@ -83,3 +107,4 @@ formTarget.addEventListener('load', () => {
     formStatus.className = 'min-h-6 text-sm text-green-700';
     formStatus.textContent = 'Thank you. Your enquiry has been sent successfully.';
 });
+}

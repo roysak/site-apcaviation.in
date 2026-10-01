@@ -6,9 +6,10 @@ tailwind.config = {
             },
             colors: {
                brand: {
-                     navy: '#0e1f3b',
-                     gold: '#cba343',
-                     light: '#f8fafc',
+                     navy: '#102d55',
+                     blue: '#195b9a',
+                     sky: '#8bd3ff',
+                     light: '#f3f8fd',
                }
             }
          }

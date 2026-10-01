@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-.hero-media{background:linear-gradient(90deg,rgba(5,16,33,.9),rgba(5,16,33,0)),url("../img/hero.png") 60% center/cover}
+[hidden] { display: none !important; }
+.hero-media{background:linear-gradient(90deg,rgba(16,45,85,.94),rgba(16,45,85,.12)),url("../img/hero.png") 60% center/cover}
 .fade-in-up {
    animation: fadeInUp 0.8s ease-out forwards;
    opacity: 0;
