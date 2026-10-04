@@ -41,7 +41,8 @@ const enquiryForm = document.getElementById('enquiry-form');
 if (enquiryForm) {
 const formStatus = document.getElementById('form-status');
 const submitButton = document.getElementById('form-submit');
-const formTarget = document.querySelector('iframe[name="google-form-target"]');
+const resultFrame = document.getElementById('enquiry-result-frame');
+const requestIdInput = document.getElementById('enquiry-request-id');
 const nameInput = document.getElementById('name');
 const phoneInput = document.getElementById('phone');
 const courseInput = document.getElementById('course');
@@ -54,7 +55,47 @@ const courseBySlug = {
 };
 const selectedCourse = courseBySlug[new URLSearchParams(window.location.search).get('course')];
 if (selectedCourse) courseInput.value = selectedCourse;
-let submissionPending = false;
+const newRequestId = () => Array.from(crypto.getRandomValues(new Uint8Array(16)),
+    byte => byte.toString(16).padStart(2, '0')).join('');
+const handshakeId = newRequestId();
+let inlineResultReady = false;
+let pendingRequestId = '';
+let responseTimeout;
+
+window.addEventListener('message', (event) => {
+    const trustedOrigin = event.origin === 'https://script.google.com' ||
+        /^https:\/\/[a-z0-9-]+-script\.googleusercontent\.com$/.test(event.origin);
+    const result = event.data;
+    if (!trustedOrigin || !result || result.source !== 'apc-enquiry') return;
+
+    if (result.status === 'ready') {
+        if (result.requestId === handshakeId) {
+            inlineResultReady = true;
+        }
+        return;
+    }
+
+    if (!['success', 'error'].includes(result.status) ||
+        !pendingRequestId || result.requestId !== pendingRequestId) return;
+    clearTimeout(responseTimeout);
+    pendingRequestId = '';
+    submitButton.disabled = false;
+    submitButton.textContent = 'Submit Enquiry';
+
+    if (result.status === 'success') {
+        enquiryForm.reset();
+        formStatus.className = 'min-h-6 text-sm text-green-700';
+        formStatus.textContent = 'Thank you. Your enquiry has been submitted. We will contact you soon.';
+    } else {
+        formStatus.className = 'min-h-6 text-sm text-red-700';
+        formStatus.textContent = 'Your enquiry could not be submitted. Please check your details and try again.';
+    }
+});
+
+// Submit only after the deployed script confirms it can report an in-page result.
+const handshakeUrl = new URL(enquiryForm.action);
+handshakeUrl.searchParams.set('handshake', handshakeId);
+resultFrame.src = handshakeUrl.href;
 
 const validateName = () => {
     const value = nameInput.value.trim();
@@ -100,21 +141,25 @@ enquiryForm.addEventListener('submit', (event) => {
 
     nameInput.value = nameInput.value.trim().replace(/\s+/g, ' ');
     phoneInput.value = phoneInput.value.replace(/[\s-]/g, '').replace(/^(?:\+?91)/, '');
-    submissionPending = true;
+    if (!inlineResultReady) {
+        event.preventDefault();
+        formStatus.className = 'min-h-6 text-sm text-red-700';
+        formStatus.textContent = 'The enquiry service is unavailable right now. Please call or email us.';
+        return;
+    }
+
+    formStatus.className = 'min-h-6 text-sm text-gray-600';
+    pendingRequestId = newRequestId();
+    requestIdInput.value = pendingRequestId;
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
-    formStatus.className = 'min-h-6 text-sm text-gray-600';
     formStatus.textContent = 'Sending your enquiry...';
-});
-
-formTarget.addEventListener('load', () => {
-    if (!submissionPending) return;
-
-    submissionPending = false;
-    enquiryForm.reset();
-    submitButton.disabled = false;
-    submitButton.textContent = 'Submit Enquiry';
-    formStatus.className = 'min-h-6 text-sm text-green-700';
-    formStatus.textContent = 'Thank you. Your enquiry has been sent successfully.';
+    responseTimeout = setTimeout(() => {
+        pendingRequestId = '';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Enquiry';
+        formStatus.className = 'min-h-6 text-sm text-red-700';
+        formStatus.textContent = 'We could not confirm whether your enquiry was saved. Please contact us before submitting again.';
+    }, 30000);
 });
 }
